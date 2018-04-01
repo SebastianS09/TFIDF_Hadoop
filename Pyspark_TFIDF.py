@@ -26,3 +26,9 @@ def TFIDF(doc,samp):
     TFIDF_scores.saveAsTextFile(filename)
     t1 = time.time()
     print("elasped time for","doc numb: ",doc_nb,"sample_size: ",sample_size,"time: ",t1-t0)
+    
+for i in docs:
+    TFIDF(i,0.005)
+    
+for j in samples:
+    TFIDF(10,j)
