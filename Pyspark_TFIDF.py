@@ -3,6 +3,7 @@ import time
 
 docs = [2,5,10,20,50,100]
 samples = [0.001,0.002,0.005,0.01,0.05,0.1]
+samples_2 = [0.001,0.002,0.01,0.05,0.1]   #because we already did it with 0.005 
 
 def TFIDF(doc,samp):
     t0 = time.time()
@@ -29,8 +30,6 @@ def TFIDF(doc,samp):
     
 for i in docs:
     TFIDF(i,0.005)
-    
-samples_2 = [0.001,0.002,0.01,0.05,0.1]   #because we already did it with 0.005 
-    
+        
 for j in samples_2:
     TFIDF(10,j)
