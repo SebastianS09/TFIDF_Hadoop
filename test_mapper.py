@@ -1,7 +1,7 @@
 import sys
-import os 
 
-test = os.environ["TOTALS"]
+file = open("totals")
+test = file.read()
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
