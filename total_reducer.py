@@ -12,24 +12,17 @@ doc = None
 for line in sys.stdin:
     # remove leading and trailing whitespace
     line = line.strip()
-
-    # parse the input we got from wc_mapper.py with the id (thus having 2 spaces, we need to split from the end to keep the id) 
-    doc, words, count = line.split('\t')
-
-    # convert count (currently a string) to int
-    try:
-        count = int(count)
-    except ValueError:
-        # count was not a number, so silently
-        # ignore/discard this line
-        continue
-    word_count += words
+    doc, words = line.split('\t')
+    
+    #incrementing the number of words
+    word_count += int(words)
+    #incrementing the number of docs
     # this IF-switch only works because Hadoop sorts map output
-    # by key (here: word) before it is passed to the reducer
+    # by key (here: doc) before it is passed to the reducer
     if current_doc != doc:
         current_count += 1
         current_doc = doc
         
-# do not forget to output the last word if needed!
+# output the last line having the total count
 if current_doc == doc:
     print '%s\t%s' % (current_count, word_count)
