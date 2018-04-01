@@ -9,7 +9,7 @@ current_occ = 0
 occ_count = 0
 word = None
 
-with open('/Users/Sebastian/Desktop/test.txt','r') as file:
+with open('part-00000','r') as file:
     stats = file.readlines()
 
 stats = [i.split() for i in stats]
