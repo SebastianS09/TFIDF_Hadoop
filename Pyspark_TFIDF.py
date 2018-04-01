@@ -22,7 +22,7 @@ def TFIDF(doc,samp):
     IDF = occ_count.map(lambda x : (x[0],math.log(doc_nb/x[1])))
     joined = doc_word_count.map(lambda x: (x[0][1],(x[0][0],x[1]))).join(IDF)
     TFIDF_scores = joined.map(lambda x: (x[0],(x[1][0][0],x[1][0][1]*x[1][1])))
-    filename = str(docs)+'_'+str(samples)+'_'"file.csv"
+    filename = str(doc)+'_'+str(samp)+'_'"file.csv"
     TFIDF_scores.saveAsTextFile(filename)
     t1 = time.time()
     print("elasped time for","doc numb: ",doc_nb,"sample_size: ",sample_size,"time: ",t1-t0)
