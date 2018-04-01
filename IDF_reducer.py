@@ -9,10 +9,10 @@ current_occ = 0
 occ_count = 0
 word = None
 
-stats = []
-file = open('part-00000','r')
-stats = file.readline()
+with open('/Users/Sebastian/Desktop/test.txt','r') as file:
+    stats = file.readlines()
 
+stats = [i.split() for i in stats]
 stat_dict = dict(stats)
 doc_numb = len(stat_dict)
 
@@ -42,16 +42,12 @@ for line in sys.stdin:
     else:
         if current_word:
             for line in temp:
-              print '%s\t%s\t%s' % (line[0], line[1], line[2]/float(stat_dict[line[1]])*(math.log(float(doc_numb)/current_occ)))
-            # write result to STDOUT
-            #print '%s\t%s' % (current_word, float(current_occ)/doc_numb)
+                print '%s\t%s\t%s' % (line[0], line[1], line[2]/float(stat_dict[line[1]])*(math.log(float(doc_numb)/current_occ)))
         current_word = word
         current_occ = 1
         
         temp = [(word,ID,count)]
 
-# do not forget to output the last word if needed!
 if current_word == word:
-    #print '%s\t%s' % (current_word, float(current_occ)/doc_numb)
     for line in temp:
-      print '%s\t%s\t%s' % (line[0], line[1], line[2]/float(stat_dict[line[1]])*(math.log(float(doc_numb)/current_occ)))
+        print '%s\t%s\t%s' % (line[0], line[1], line[2]/float(stat_dict[line[1]])*(math.log(float(doc_numb)/current_occ)))
