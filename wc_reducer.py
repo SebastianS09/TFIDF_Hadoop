@@ -13,7 +13,7 @@ for line in sys.stdin:
     line = line.strip()
 
     # parse the input we got from wc_mapper.py with the id (thus having 2 spaces, we need to split from the end to keep the id) 
-    word, count = line.rsplit('\t', 1)
+    word, count = line.split('\t')
 
     # convert count (currently a string) to int
     try:
@@ -30,10 +30,12 @@ for line in sys.stdin:
     else:
         if current_word:
             # write result to STDOUT
-            print '%s\t%s' % (current_word, current_count)
+            out = current_word.split('_')
+            print '%s\t%s\t%s' % (out[0],out[1], current_count)
         current_count = count
         current_word = word
 
 # do not forget to output the last word if needed!
 if current_word == word:
-    print '%s\t%s' % (current_word, current_count)
+    out = current_word.split('_')
+            print '%s\t%s\t%s' % (out[0],out[1], current_count)
