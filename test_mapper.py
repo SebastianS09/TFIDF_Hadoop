@@ -1,12 +1,11 @@
 import sys
-sys.path.append('.')
-import mapreduce
+import os
 
 
-file = open("totals")
-test = file.readline()
-test = test.split()
+test = os.environ["TOTALS"]
+
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
-    print test
+    a = 0
+print test
