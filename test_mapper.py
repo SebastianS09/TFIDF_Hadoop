@@ -1,11 +1,6 @@
 import sys
-import os
 
-
-test = os.environ["TOTALS"]
-
-
-# input comes from STDIN (standard input)
-for line in sys.stdin:
-    a = 0
-print test
+with open("totals","r") as f:
+    for line in f:
+        print line.rstrip()
+f.closed
