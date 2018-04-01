@@ -4,7 +4,15 @@
 import sys
 
 current_doc = None
-current_count = 0
+current_doc_count = 0
+current_word_count = 0
+word_count = 0
+doc = None
+
+# input comes from STDIN
+current_doc = None
+current_doc_count = 0
+current_word_count = 0
 word_count = 0
 doc = None
 
@@ -14,15 +22,27 @@ for line in sys.stdin:
     line = line.strip()
     doc, words = line.split('\t')
     
+    try:
+        words = int(words)
+    except ValueError:
+        continue
+        
+    if current_doc==doc:
+        word_count += words
     #incrementing the number of words
-    word_count += int(words)
-    #incrementing the number of docs
     # this IF-switch only works because Hadoop sorts map output
     # by key (here: doc) before it is passed to the reducer
-    if current_doc != doc:
-        current_count += 1
+    else: 
+        if current_doc:
+          print '%s\t%s' % (current_doc, word_count)  
+        word_count = words
         current_doc = doc
+        #incrementing the number of docs
+        current_doc_count += 1
+
         
 # output the last line having the total count
 if current_doc == doc:
-    print '%s\t%s\t%s' % (current_count, word_count,"total_counts")
+    print '%s\t%s' % (current_doc, word_count)
+    #outputting the total number of docs
+    print '%s\t%s' % ('total docs', current_doc_count)
