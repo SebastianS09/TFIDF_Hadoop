@@ -14,7 +14,7 @@ file = open('part-00000','r')
 stats = file.readline()
 
 stat_dict = dict(stats)
-doc_numb = stat_dict["total docs"]
+doc_numb = len(stat_dict)
 
 # input comes from STDIN
 for line in sys.stdin:
