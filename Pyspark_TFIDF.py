@@ -1,6 +1,4 @@
-import pyspark
-sc = pyspark.SparkContext()
-text_raw = sc.textFile("5000-8.txt")
+text_raw = sc.textFile("/user/hadoop/docgen/input/5000-8.txt")
 text_raw.take(5)
 
 #Cleaning text and removing punctuation:
