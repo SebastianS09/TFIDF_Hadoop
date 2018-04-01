@@ -1,10 +1,9 @@
 import sys
 
 file = open("totals")
-test = file.read()
+test = file.readline()
+test = test.split()
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
-    a = 0
-
-print (test)
+    print test
