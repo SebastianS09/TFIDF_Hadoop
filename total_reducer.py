@@ -38,11 +38,8 @@ for line in sys.stdin:
         word_count = words
         current_doc = doc
         #incrementing the number of docs
-        current_doc_count += 1
-
         
 # output the last line having the total count
 if current_doc == doc:
     print '%s\t%s' % (current_doc, word_count)
-    #outputting the total number of docs
-    print '%s\t%s' % ('total docs', current_doc_count)
+    #outputting the total number of doc
