@@ -25,4 +25,4 @@ for line in sys.stdin:
         
 # output the last line having the total count
 if current_doc == doc:
-    print '%s\t%s' % (current_count, word_count)
+    print '%s\t%s\t%s' % (current_count, word_count,"total_counts")
