@@ -14,4 +14,4 @@ for line in sys.stdin:
         # what we output here will be the input for the
         # Reduce step, i.e. the input for reducer.py
         # tab-delimited; the trivial word count is 1
-    print '%s\t%s' % (triplets,1)
+    print '%s\t%s\t%s\t%s' % (triplets[0],triplets[1],triplets[2],1)
