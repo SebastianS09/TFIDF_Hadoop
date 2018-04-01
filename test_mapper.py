@@ -1,6 +1,7 @@
 import sys
 
-with open("totals","r") as f:
-    for line in f:
-        print line.rstrip()
-f.closed
+#with open("totals","r") as f:
+#    for line in f:
+#        print line.rstrip()
+#f.closed
+print "lol"
