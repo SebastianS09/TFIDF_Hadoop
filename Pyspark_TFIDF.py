@@ -30,7 +30,7 @@ def TFIDF(doc,samp):
 for i in docs:
     TFIDF(i,0.005)
     
-samples = [0.001,0.002,0.01,0.05,0.1]   #because we already did it with 0.005 
+samples_2 = [0.001,0.002,0.01,0.05,0.1]   #because we already did it with 0.005 
     
-for j in sa:
+for j in samples_2:
     TFIDF(10,j)
