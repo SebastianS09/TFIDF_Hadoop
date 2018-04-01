@@ -38,4 +38,4 @@ for line in sys.stdin:
 # do not forget to output the last word if needed!
 if current_word == word:
     out = current_word.split('_')
-            print '%s\t%s\t%s' % (out[0],out[1], current_count)
+    print '%s\t%s\t%s' % (out[0],out[1], current_count)
