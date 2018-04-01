@@ -9,4 +9,4 @@ import sys
 for line in sys.stdin:
     triplets = line.split()
 
-    print '%s\t%s' % (triplets[1:2])
+    print '%s\t%s' % (triplets[1],triplets[2])
