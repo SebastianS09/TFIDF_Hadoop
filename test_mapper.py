@@ -1,4 +1,7 @@
 import sys
+sys.path.append('.')
+import mapreduce
+
 
 file = open("totals")
 test = file.readline()
