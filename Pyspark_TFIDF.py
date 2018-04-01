@@ -1,4 +1,8 @@
 import math
+import time
+
+t0 = time.time()
+
 text_raw = sc.textFile("/user/hadoop/docgen/input/5000-8.txt")
 
 #Cleaning text and removing punctuation:
@@ -23,3 +27,6 @@ IDF = occ_count.map(lambda x : (x[0],math.log(doc_nb/x[1])))
 joined = doc_word_count.map(lambda x: (x[0][1],(x[0][0],x[1]))).join(IDF)
 TFIDF_scores = joined.map(lambda x: (x[0],(x[1][0][0],x[1][0][1]*x[1][1])))
 TFIDF_scores.collect()
+t1 = time.time()
+
+print("elasped time for","doc numb: ",doc_nb,"sample_size: ",sample_size,"time: ",t1-t0)
