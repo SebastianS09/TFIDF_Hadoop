@@ -13,6 +13,6 @@ for line in sys.stdin:
         # Reduce step, i.e. the input for reducer.py
         # Keeping the ID for future reference
         # tab-delimited; the trivial word count is 1
-    print '%s\t%s\t%s' % (pairs[0],pairs[1], 1)
+    print '%s\t%s' % (pairs[0]+'_'+pairs[1], 1)
 
    
