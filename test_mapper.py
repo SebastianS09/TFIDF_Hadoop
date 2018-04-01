@@ -5,5 +5,6 @@ test = os.environ["TOTALS"]
 
 # input comes from STDIN (standard input)
 for line in sys.stdin:
-    pairs = line.split()
-    print '%s\t%s' % (pairs, test)
+    a = 0
+
+print (test)
