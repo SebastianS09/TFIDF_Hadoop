@@ -1,12 +1,14 @@
 #!/usr/bin/python
-
-
 import sys
 import random
+import os
+
+
 
 count = 0
 N = 0
-K=200
+K = os.environ["K"]
+
 key = random.randint(0,10000)
 save = []
 
