@@ -34,4 +34,4 @@ for line in sys.stdin:
             
 #output the word and the document it belongs to (key)
 for i in save:
-  print '%s\t%s' % (i,key)
+    print '%s\t%s' % (i,key)
