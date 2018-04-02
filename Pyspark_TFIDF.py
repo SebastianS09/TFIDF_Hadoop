@@ -17,8 +17,9 @@ def TFIDF(doc,samp):
     documents = [(words.sample(False,sample_size)) for i in range(doc_nb)]
     documents = [sc.parallelize(documents[i].map(lambda x: (i,x)).collect()) for i in range(doc_nb)]
     documents = sc.union(documents)
-    doclist = documents.groupByKey().map(lambda x: list(x[1]))
-    doc_word_count = documents.map(lambda x: ((x[0],x[1]),1)).reduceByKey(lambda x,y: x+y)
+    doc_word_number = documents.map(lambda x: (x[0],1)).reduceByKey(lambda x,y: x+y)
+    documents_w_count = documents.join(doc_word_number)
+    doc_word_count = documents_w_count.map(lambda x: ((x[0],x[1][0]),float(1)/x[1][1])).reduceByKey(lambda x,y: x+y)
     occ_count = doc_word_count.map(lambda x: (x[0][1],1)).reduceByKey(lambda x,y: x+y)
     IDF = occ_count.map(lambda x : (x[0],math.log(doc_nb/x[1])))
     joined = doc_word_count.map(lambda x: (x[0][1],(x[0][0],x[1]))).join(IDF)
