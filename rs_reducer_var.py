@@ -6,6 +6,7 @@ import os
 count = 0
 N = 0
 K = os.environ["K"]
+K = int(K)
 
 key = random.randint(0,10000)
 save = []
