@@ -1,18 +1,9 @@
 #!/usr/bin/python
 
-
+#### We want to count the number of words per document
 import sys
 
 current_doc = None
-current_doc_count = 0
-current_word_count = 0
-word_count = 0
-doc = None
-
-# input comes from STDIN
-current_doc = None
-current_doc_count = 0
-current_word_count = 0
 word_count = 0
 doc = None
 
@@ -37,9 +28,7 @@ for line in sys.stdin:
           print '%s\t%s' % (current_doc, word_count)  
         word_count = words
         current_doc = doc
-        #incrementing the number of docs
         
 # output the last line having the total count
 if current_doc == doc:
     print '%s\t%s' % (current_doc, word_count)
-    #outputting the total number of doc
